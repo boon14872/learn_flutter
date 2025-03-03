@@ -6,6 +6,27 @@
 
 ---
 
+## สารบัญ
+1. [ภาพรวม](#ภาพรวม)
+2. [การติดตั้งเครื่องมือ](#การติดตั้งเครื่องมือ)
+  - [ติดตั้ง Flutter](#ติดตั้ง-flutter)
+  - [ติดตั้ง IDE](#ติดตั้ง-ide)
+  - [ติดตั้ง Android Emulator หรือ iOS Simulator](#ติดตั้ง-android-emulator-หรือ-ios-simulator)
+3. [setup firebase](#3-setup-firebase.md)
+4. [เริ่มต้นสร้างโปรเจกต์](#เริ่มต้นสร้างโปรเจกต์)
+  - [สร้างโปรเจกต์ Flutter ใหม่](#สร้างโปรเจกต์-flutter-ใหม่)
+  - [เพิ่ม Dependencies](#เพิ่ม-dependencies)
+  - [สร้างโครงสร้างโฟลเดอร์](#สร้างโครงสร้างโฟลเดอร์)
+  - [เขียนโค้ดเริ่มต้น](#เขียนโค้ดเริ่มต้น)
+  - [สร้างโมเดลพื้นฐาน](#สร้างโมเดลพื้นฐาน)
+  - [สร้างระบบล็อกอิน](#สร้างระบบล็อกอิน)
+  - [รันแอปครั้งแรก](#รันแอปครั้งแรก)
+5. [พัฒนาต่อ](#พัฒนาต่อ)
+6. [ทรัพยากรเพิ่มเติม](#ทรัพยากรเพิ่มเติม)
+7. [คำแนะนำ](#คำแนะนำ)
+
+---
+
 ## ภาพรวม
 
 แอปนี้เป็นร้านค้าออนไลน์ที่ให้:
@@ -17,85 +38,7 @@
 - **GetX:** ช่วยจัดการสถานะและการนำทางในแอป
 - **Firebase:** ระบบ backend สำหรับล็อกอิน, ฐานข้อมูล, และเก็บรูปภาพ
 
----
 
-## การติดตั้งเครื่องมือ
-
-### 1. ติดตั้ง Flutter
-#### Flutter คืออะไร?
-Flutter เป็นเครื่องมือจาก Google ใช้สร้างแอปที่รันได้ทั้ง Android และ iOS จากโค้ดเดียว
-
-#### ขั้นตอน:
-1. **ดาวน์โหลด Flutter SDK**
-   - ไปที่: [Flutter Install](https://flutter.dev/docs/get-started/install)
-   - เลือกเวอร์ชันสำหรับระบบปฏิบัติการของคุณ (Windows, macOS, Linux)
-   - แตกไฟล์ ZIP และวางโฟลเดอร์ `flutter` ในตำแหน่งที่ต้องการ (เช่น `C:\flutter`)
-
-2. **ตั้งค่า Path**
-   - เพิ่ม `flutter/bin` เข้าไปใน Environment Variables (Windows) หรือ `.bashrc` (Linux/macOS)
-   - ตัวอย่างใน Windows:
-     - Control Panel → System → Advanced system settings → Environment Variables → Path → เพิ่ม `C:\flutter\bin`
-
-3. **ตรวจสอบการติดตั้ง**
-   - เปิด Terminal หรือ Command Prompt
-   - รัน: `flutter doctor`
-   - ถ้าติดตั้งสำเร็จ จะเห็นรายการตรวจสอบ (อาจต้องติดตั้งเพิ่มเติมตามคำแนะนำ)
-
----
-
-### 2. ติดตั้ง IDE
-#### IDE คืออะไร?
-IDE (Integrated Development Environment) คือโปรแกรมที่ใช้เขียนโค้ดและรันแอป
-
-#### ตัวเลือกแนะนำ:
-- **VS Code:** เล็ก, เร็ว, เหมาะกับ Flutter
-  - ดาวน์โหลด: [VS Code](https://code.visualstudio.com/)
-  - ติดตั้ง Extensions:
-    - `Flutter`
-    - `Dart`
-- **Android Studio:** ครบเครื่อง, เหมาะกับ Android
-  - ดาวน์โหลด: [Android Studio](https://developer.android.com/studio)
-
-#### ขั้นตอน:
-1. ดาวน์โหลดและติดตั้ง IDE ที่เลือก
-2. เปิด IDE และตั้งค่า Flutter (ใน VS Code: กด F1 → พิมพ์ `Flutter: New Project`)
-
----
-
-### 3. ติดตั้ง Android Emulator หรือ iOS Simulator
-#### Emulator/Simulator คืออะไร?
-เครื่องจำลองที่ใช้ทดสอบแอปบนคอมพิวเตอร์
-
-#### ขั้นตอน:
-- **Android Emulator (Windows/macOS/Linux):**
-  - ติดตั้ง Android Studio (มี Android SDK มาให้)
-  - เปิด AVD Manager → Create Virtual Device → เลือกอุปกรณ์ (เช่น Pixel 4) → ดาวน์โหลด Android Version (เช่น API 30)
-- **iOS Simulator (macOS เท่านั้น):**
-  - ติดตั้ง Xcode: [Mac App Store](https://apps.apple.com/us/app/xcode/id497799835)
-  - เปิด Xcode → Preferences → Components → ดาวน์โหลด Simulator
-
----
-
-### 4. ตั้งค่า Firebase
-#### Firebase คืออะไร?
-Firebase เป็นบริการจาก Google ช่วยจัดการล็อกอิน, ฐานข้อมูล, และไฟล์ในแอป
-
-#### ขั้นตอน:
-1. **สร้างบัญชี Firebase**
-   - ไปที่: [Firebase Console](https://console.firebase.google.com/)
-   - คลิก "Add project" → ตั้งชื่อ (เช่น "Mini E-Commerce") → สร้าง
-
-2. **เพิ่มแอปใน Firebase**
-   - คลิก "Android" → ใส่ Package Name (เช่น `com.example.mini_ecommerce`)
-   - ดาวน์โหลด `google-services.json`
-   - วางไฟล์ใน `android/app/`
-
-3. **เปิดใช้งานบริการ**
-   - **Authentication:** ไปที่ Authentication → Sign-in method → เปิด Email/Password และ Google
-   - **Firestore:** ไปที่ Firestore Database → Create database (เลือก Test Mode)
-   - **Storage:** ไปที่ Storage → Get Started
-
----
 
 ## เริ่มต้นสร้างโปรเจกต์
 
