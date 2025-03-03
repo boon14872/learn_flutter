@@ -8,10 +8,7 @@
 
 ## สารบัญ
 1. [ภาพรวม](#ภาพรวม)
-2. [การติดตั้งเครื่องมือ](#การติดตั้งเครื่องมือ)
-  - [ติดตั้ง Flutter](#ติดตั้ง-flutter)
-  - [ติดตั้ง IDE](#ติดตั้ง-ide)
-  - [ติดตั้ง Android Emulator หรือ iOS Simulator](#ติดตั้ง-android-emulator-หรือ-ios-simulator)
+2. [การติดตั้งเครื่องมือ](2-flutter-install.md)
 3. [setup firebase](#3-setup-firebase.md)
 4. [เริ่มต้นสร้างโปรเจกต์](#เริ่มต้นสร้างโปรเจกต์)
   - [สร้างโปรเจกต์ Flutter ใหม่](#สร้างโปรเจกต์-flutter-ใหม่)
