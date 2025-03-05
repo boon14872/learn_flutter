@@ -9,7 +9,7 @@
 ## สารบัญ
 1. [ภาพรวม](#ภาพรวม)
 2. [การติดตั้งเครื่องมือ](2-flutter-install.md)
-3. [setup firebase](#3-setup-firebase.md)
+3. [setup firebase](3-setup-firebase.md)
 4. [เริ่มต้นสร้างโปรเจกต์](#เริ่มต้นสร้างโปรเจกต์)
   - [สร้างโปรเจกต์ Flutter ใหม่](#สร้างโปรเจกต์-flutter-ใหม่)
   - [เพิ่ม Dependencies](#เพิ่ม-dependencies)
